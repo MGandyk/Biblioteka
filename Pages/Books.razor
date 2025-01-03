@@ -1,6 +1,10 @@
 ﻿@page "/books"
 @using Biblioteka.Models
+@using Microsoft.AspNetCore.Identity
 @inject IHttpClientFactory HttpClientFactory
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject UserManager<IdentityUser> UserManager
+
 
 <h3>Ksiazki</h3>
 
@@ -20,8 +24,12 @@
 </div>
 
 <div class="divBTN">
+
 <button class="DBbtn" @onclick="LoadBooks">Załaduj Książki</button>
-<button class="DBbtn" @onclick="ShowAddBookForm">Dodaj Książkę</button>
+    @if (userRole == "Pracownik") // Przyciski widoczne tylko dla pracowników
+    {
+        <button class="DBbtn" @onclick="ShowAddBookForm">Dodaj Książkę</button>
+    }
 </div>
 
 @if (isAddBookFormVisible)
@@ -56,10 +64,16 @@
                 <td>@book.YearPublished</td>
                 <td>
                     @(book.IsAvailable ? "Dostępna" : "Wypożyczona")
-                    <button @onclick="() => ToggleAvailability(book.Id, !book.IsAvailable)">status</button>
+                    @if (userRole == "Pracownik")
+                    {
+                        <button @onclick="() => ToggleAvailability(book.Id, !book.IsAvailable)">status</button>
+                    }
                 </td>
                 <td>
-                    <button @onclick="() => DeleteBook(book.Id)">Usuń</button>
+                    @if (userRole == "Pracownik")
+                    {
+                        <button @onclick="() => DeleteBook(book.Id)">Usuń</button>
+                    }
                 </td>
             </tr>
         }
@@ -67,6 +81,11 @@
 </table>
 
 @code {
+    private string? userRole;
+
+
+    
+
     private List<Book> books = new(); // Pełna lista książek
     private List<Book> displayedBooks = new(); // Lista filtrowana/sortowana
     private Book newBook = new();
@@ -77,7 +96,18 @@
 
     protected override async Task OnInitializedAsync()
     {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = await UserManager.GetUserAsync(authState.User);
+
+        if (user != null)
+        {
+            var roles = await UserManager.GetRolesAsync(user);
+            userRole = roles.FirstOrDefault(); // Przyjmujemy, że użytkownik ma jedną rolę
+        }
+        
         await LoadBooks(); // Automatyczne ładowanie przy starcie
+
+        
     }
 
     private async Task LoadBooks()

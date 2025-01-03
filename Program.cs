@@ -21,7 +21,9 @@ builder.Services.AddHttpClient("BooksApi", client =>
 });
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>() // dodanie obslugi ról
     .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddScoped<UserManager<IdentityUser>>();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
@@ -58,5 +60,38 @@ app.UseAuthorization();
 app.MapControllers();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
+
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+
+    // Utwórz role "Czytelnik" i "Pracownik", jeœli ich nie ma
+    string[] roles = { "Czytelnik", "Pracownik" };
+    foreach (var role in roles)
+    {
+        if (!await roleManager.RoleExistsAsync(role))
+        {
+            await roleManager.CreateAsync(new IdentityRole(role));
+        }
+    }
+}
+using (var scope = app.Services.CreateScope())
+{
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+
+    // Pobierz wszystkich u¿ytkowników
+    var users = userManager.Users.ToList();
+
+    foreach (var user in users)
+    {
+        // SprawdŸ, czy u¿ytkownik ma przypisan¹ jak¹kolwiek rolê
+        var roles = await userManager.GetRolesAsync(user);
+        if (!roles.Any()) // Jeœli brak ról, przypisz rolê "Czytelnik"
+        {
+            await userManager.AddToRoleAsync(user, "Czytelnik");
+        }
+    }
+}
 
 app.Run();
