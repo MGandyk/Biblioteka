@@ -62,3 +62,19 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+.navmenuKsiazki {
+    display: inline-block;
+    float: right;
+}
+
+.searchbar {
+    display: block;
+    float: inline-start;
+}
+
+.table {
+    content: center;
+    margin-top: 45px;
+}
+   
