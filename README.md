@@ -24,7 +24,7 @@ Aplikacja do zarządzania biblioteką to system webowy, który pozwala na efekty
 - Konteneryzacja: Docker
 
 
-# Klasa Book :
+### Klasa Book :
 Cel: 
 	Reprezentuje książki w bibliotece.
 Relacje:
@@ -52,7 +52,7 @@ Dlaczego?:
 
 
 
-# Klasa BooksController
+### Klasa BooksController
 
 Cel: 
 	Zarządza operacjami związanymi z książkami w API.
@@ -68,7 +68,7 @@ Relacje:
 Dlaczego?:
         Koncentruje logikę aplikacji dotyczącą książek w jednym miejscu. Dzięki temu separujemy logikę kontrolera od innych części aplikacji.
 
-# Klasa ApplicationDbContext
+### Klasa ApplicationDbContext
 
 Cel: 
 	Zarządza operacjami związanymi z użytkownikami i rolami.
@@ -80,11 +80,11 @@ Relacje:
 Dlaczego?:
         Integracja z ASP.NET Core Identity zapewnia łatwe zarządzanie użytkownikami i rolami, co jest kluczowe dla funkcji rejestracji, 	logowania oraz kontroli dostępu.
 
-Klasa Program.cs
+### Klasa Program.cs
 
 Cel: 
 
-# Klasa Program.cs odpowiada za całą konfigurację środowiska i uruchamianie aplikacj
+Klasa Program.cs odpowiada za całą konfigurację środowiska i uruchamianie aplikacj
 Relacje:
         Konfiguruje LibraryContext i ApplicationDbContext jako usługi dostępne w aplikacji.
         Dodaje ASP.NET Core Identity (AddDefaultIdentity), aby umożliwić obsługę użytkowników i ról.
@@ -95,7 +95,7 @@ Dlaczego?:
         Centralne miejsce konfiguracji zapewnia elastyczność i łatwe zarządzanie zależnościami. Dzięki temu każda część aplikacji jest poprawnie zarejestrowana i dostępna.
 
 
-# ASP.NET Core Identity
+### ASP.NET Core Identity
 
 Cel: 
 	Zapewnia funkcjonalności uwierzytelniania i autoryzacji użytkowników.
@@ -110,7 +110,7 @@ Dlaczego?:
 
 Identity jest standardowym rozwiązaniem ASP.NET Core dla systemów uwierzytelniania i autoryzacji. Ułatwia zarządzanie użytkownikami, hasłami i rolami w bezpieczny sposób.
 
-# OpenIddict
+### OpenIddict
 Cel:
  	Jest to narzędzie, które pomaga w zarządzaniu logowaniem w aplikacji. Obsługuje: 
 · OAuth2: Standard pozwalający aplikacjom uzyskiwać dostęp do zasobów w imieniu użytkownika. 
