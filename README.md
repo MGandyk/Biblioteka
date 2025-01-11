@@ -25,7 +25,7 @@ Aplikacja do zarządzania biblioteką to system webowy, który pozwala na efekty
 - .NET Core
 
 
-### Klasa Book :
+### Klasa Book(#klasabook) :
 Cel: 
 	Reprezentuje książki w bibliotece.
 Relacje:
