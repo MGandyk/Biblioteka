@@ -5,8 +5,8 @@
 - [Opis projektu](#opisprojektu)
 - [Założenia](#założenia)
 - [Technologie](#technologie)
-- [Środowisko uruchomieniowe](#srodowisko)
 - [Klasy](#klasabook)
+- [Podsumowanie](#podsumowanie)
 
 
 ## Opis prjektu
@@ -129,13 +129,15 @@ Dzięki OpenIddict możemy np.:
 1. Struktura klas i dziedziczenie
 Dziedziczenie jest jednym z podstawowych elementów programowania obiektowego.
 W naszym projekcie zostało użyte w kilku miejscach:
-Przykłady :
-public class ApplicationDbContext : IdentityDbContext
+	Przykłady :
+
+   public class ApplicationDbContext : IdentityDbContext
 ApplicationDbContext dziedziczy z klasy IdentityDbContext, co pozwala na wykorzystanie wbudowanych funkcjonalności zarządzania użytkownikami i ról z ASP.NET Identity. Dodaje to specjalizację dla naszej aplikacji.
 Wykorzystanie dziedziczenia upraszcza implementację logiki autoryzacji i rejestracji użytkowników, ponieważ możemy korzystać z gotowych metod i struktur, rozszerzając je o własne funkcjonalności.
-public class LibraryContext : DbContext
+
+   public class LibraryContext : DbContext
 Klasa LibraryContext dziedziczy po DbContext.
-	LibraryContext: Klasa, którą stworzyliśmy w naszym projekcie. Jest to klasa pochodna. Przechowuje definicję struktury naszej bazy danych oraz jej konfigurację. 
+LibraryContext: Klasa, którą stworzyliśmy w naszym projekcie. Jest to klasa pochodna. Przechowuje definicję struktury naszej bazy danych oraz jej konfigurację. 
 DbContext: Klasa bazowa dostarczona przez Entity Framework Core.
 - Odpowiada za zarządzanie połączeniem z bazą danych.
 - Umożliwia wykonywanie operacji CRUD (Create, Read, Update, Delete) na obiektach w bazie danych.
@@ -182,7 +184,7 @@ Microsoft.AspNetCore.Identity: Biblioteka wspierająca zarządzanie użytkownika
 Przykład: Role użytkowników (Czytelnik, Pracownik) są zarządzane przez IdentityRole. Biblioteki umożliwiają ponowne wykorzystanie kodu i przyspieszają rozwój aplikacji.
 
 
-Podsumowanie
+### Podsumowanie
 Nasz projekt stosuje zaawansowane techniki programowania obiektowego:
 1.	Dziedziczenie – Klasa ApplicationDbContext dziedziczy z IdentityDbContext.
 2.	Polimorfizm – ASP.NET Core wykorzystuje Dependency Injection do dynamicznego dobierania implementacji.
