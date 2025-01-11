@@ -22,7 +22,7 @@ Aplikacja do zarządzania biblioteką to system webowy, który pozwala na efekty
 ## Technologie
 - Języki programowania: C#, CSS, 
 - Relacyjne bazy danych: SQL
-- Konteneryzacja: Docker
+- .NET Core
 
 
 ### Klasa Book :
