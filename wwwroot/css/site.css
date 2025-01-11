@@ -78,8 +78,11 @@ a, .btn-link {
     margin-top: 45px;
 }
 
-.image-b {
-    display: block;
-    margin: 0 auto;
+.obraz {
+    display: flex;
+    height: 350px;
+    margin: 0px 0px 0px 550px
+}
+
     
    
