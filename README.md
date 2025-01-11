@@ -126,7 +126,7 @@ Dzięki OpenIddict możemy np.:
 
 
 
-1. Struktura klas i dziedziczenie
+## 1. Struktura klas i dziedziczenie
 Dziedziczenie jest jednym z podstawowych elementów programowania obiektowego.
 W naszym projekcie zostało użyte w kilku miejscach:
 	Przykłady :
@@ -144,16 +144,16 @@ DbContext: Klasa bazowa dostarczona przez Entity Framework Core.
 - Jest fundamentem wzorca ORM (Object-Relational Mapping), który mapuje obiekty w kodzie na dane w relacyjnej bazie danych.
 
 
-2. Polimorfizm
+## 2. Polimorfizm
 
-    Polimorfizm umożliwia wywoływanie metod w sposób, który zależy od konkretnej implementacji klasy pochodnej lub dostarczonej instancji obiektu.
+Polimorfizm umożliwia wywoływanie metod w sposób, który zależy od konkretnej implementacji klasy pochodnej lub dostarczonej instancji obiektu.
 
-      Przykład: ASP.NET Core używa mechanizmu wstrzykiwania zależności (Dependency Injection), który opiera się na polimorfizmie:
+Przykład: ASP.NET Core używa mechanizmu wstrzykiwania zależności (Dependency Injection), który opiera się na polimorfizmie:
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
 Tutaj klasa RevalidatingIdentityAuthenticationStateProvider jest używana jako implementacja interfejsu AuthenticationStateProvider. Dzięki temu aplikacja może korzystać z różnych implementacji, nie wiedząc o ich szczegółach.
 Cel: Polimorfizm umożliwia łatwą wymienność implementacji, co jest zgodne z zasadą otwarte/zamknięte (Open/Closed Principle).
 
-3. Hermetyzacja
+## 3. Hermetyzacja
 Hermetyzacja polega na ukrywaniu szczegółów implementacji i eksponowaniu jedynie niezbędnych elementów przez interfejsy publiczne.
 Przykład: W klasie Book:
 public class Book
@@ -169,14 +169,14 @@ public class Book
 private readonly LibraryContext _context;
 Cel: Hermetyzacja chroni dane i logikę aplikacji przed nieautoryzowanym dostępem, co zwiększa bezpieczeństwo i czytelność kodu.
 
-4. Interfejsy
+## 4. Interfejsy
 Interfejsy pozwalają na definiowanie kontraktów, które muszą być spełnione przez klasy implementujące.
 Przykład: ASP.NET Core opiera się na wykorzystaniu interfejsów w całej strukturze, np. IServiceCollection, IDbContextOptions, IAuthenticationService.
 W naszym projekcie:
 builder.Services.AddScoped<UserManager<IdentityUser>>();
 Interfejs UserManager<IdentityUser> jest używany do zarządzania użytkownikami, a faktyczna implementacja jest dostarczana przez ASP.NET Identity.
 
-5. Biblioteki
+## 5. Biblioteki
 W  naszym projekcie wykorzystano wiele bibliotek i frameworków, które wspierają paradygmat obiektowy:
 Microsoft.EntityFrameworkCore: Używany do mapowania obiektowo-relacyjnego (ORM) i zarządzania bazą danych. Biblioteka pozwala na operowanie na danych jako na obiektach.
 Przykład: LibraryContext i ApplicationDbContext zarządzają bazą danych jako kolekcją obiektów (DbSet<T>).
