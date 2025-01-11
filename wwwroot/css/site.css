@@ -80,9 +80,12 @@ a, .btn-link {
 
 .obraz {
     display: flex;
-    height: 350px;
-    margin: 0px 0px 0px 550px
+    height: auto;
+    justify-content: center;
 }
+
+
+
 
     
    
