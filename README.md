@@ -38,7 +38,7 @@ Tworzy rzeczywisty obiekt "Książka", przechowując jego właściwości:
 - YearPublished: int   
 - IsAvailable: bool
 
-	Klasa LibartContext
+### Klasa LibartContext
 Cel: 
 	Reprezentuje kontekst bazy danych dla książek.
 
