@@ -3,10 +3,10 @@
 ### Spis treści
 
 - [Opis projektu](#opisprojektu)
-- [Założenia](#zalozenia)
+- [Założenia](#założenia)
 - [Technologie](#technologie)
 - [Środowisko uruchomieniowe](#srodowisko)
-- [Klasy](#klasa-book)
+- [Klasy](#klasabook)
 
 
 ## Opis prjektu
