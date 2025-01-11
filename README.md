@@ -6,6 +6,7 @@
 - [Założenia](#zalozenia)
 - [Technologie](#technologie)
 - [Środowisko uruchomieniowe](#srodowisko)
+- [Klasy](#klasabook)
 
 
 ## Opis prjektu
