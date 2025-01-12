@@ -9,7 +9,7 @@
 - [Podsumowanie](#podsumowanie)
 
 
-## Opis prjektu
+## Opis projektu
 
 Aplikacja do zarządzania biblioteką to system webowy, który pozwala na efektywne zarządzanie książkami, użytkownikami, wypożyczeniami oraz innymi aspektami działania biblioteki. Projekt jest skierowany równo do bibliotek szkolnych, publicznych oraz prywaynych kolekcji, umożliwiając łatwą organizację zasobów i monitorowanie ich przepływu.
 
