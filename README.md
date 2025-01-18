@@ -6,6 +6,7 @@
 - [Założenia](#założenia)
 - [Technologie](#technologie)
 - [Klasy](#klasabook)
+- [Baza danych](#Baza danych)
 - [Podsumowanie](#podsumowanie)
 
 
@@ -122,6 +123,18 @@ Dzięki OpenIddict możemy np.:
 · Umożliwić użytkownikom logowanie przez nazwę użytkownika i hasło. 
 · Wygenerować tokeny, które mówią, kim jest użytkownik i co może robić. 
 · Ułatwić aplikacji rozpoznanie, czy użytkownik jest zalogowany i czy ma odpowiednie uprawnienia. 
+
+## Baza danych
+W naszym projekcie korzystamy z bazy danych SQL Server, która znajduje się w chmurze na platformie Azure. Dzięki temu mamy do niej dostęp z dowolnego miejsca, używając narzędzia SQL Server Management Studio.
+
+Baza danych jest podzielona na dwie główne części:
+
+Książki – Tutaj przechowywane są wszystkie informacje o książkach, takie jak tytuł, autor, rok wydania i status dostępności (czy książka jest aktualnie dostępna).
+Użytkownicy – To lista osób, które zarejestrowały się w systemie. Każdy użytkownik ma przypisaną rolę:
+        Czytelnik – Może przeglądać bazę książek i korzystać z funkcji sortowania.
+        Pracownik – Ma większe uprawnienia: może dodawać, usuwać i edytować informacje o książkach.
+
+Dzięki podziałowi ról baza danych pozwala na łatwe zarządzanie dostępem do różnych funkcji w aplikacji. Wszystkie dane są bezpieczne i dostępne tylko dla autoryzowanych użytkowników.
 
 
 
