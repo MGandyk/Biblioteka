@@ -6,7 +6,7 @@
 - [Założenia](#założenia)
 - [Technologie](#technologie)
 - [Klasy](#klasabook)
-- [Baza danych](#Baza danych)
+- Baza danych
 - [Podsumowanie](#podsumowanie)
 
 
