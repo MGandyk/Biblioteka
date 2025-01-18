@@ -130,6 +130,7 @@ W naszym projekcie korzystamy z bazy danych SQL Server, która znajduje się w c
 Baza danych jest podzielona na dwie główne części:
 
 Książki – Tutaj przechowywane są wszystkie informacje o książkach, takie jak tytuł, autor, rok wydania i status dostępności (czy książka jest aktualnie dostępna).
+
 Użytkownicy – To lista osób, które zarejestrowały się w systemie. Każdy użytkownik ma przypisaną rolę:
         Czytelnik – Może przeglądać bazę książek i korzystać z funkcji sortowania.
         Pracownik – Ma większe uprawnienia: może dodawać, usuwać i edytować informacje o książkach.
